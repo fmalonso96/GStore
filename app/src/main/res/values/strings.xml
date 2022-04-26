@@ -4,4 +4,5 @@
     <string name="open" />
     <string name="close" />
     <string name="bienvenidos_a_gstore">Bienvenidos a GStore</string>
+    <string name="app_description">Esta app es para ver un listado de productos y van a encontrar el uso de lo siguiente: \n \n - Retrofit \n - Room \n - Glide \n - Fragments \n - Navigation Drawer \n - Constraints \n - Coroutines \n - Mvvm \n - Recyclerviews</string>
 </resources>

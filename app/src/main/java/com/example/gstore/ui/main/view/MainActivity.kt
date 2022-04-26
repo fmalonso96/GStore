@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setDrawer()
         setNavigationListeners()
-
         setToolbarTitle("Menu Principal")
         changeFragment(HomeFragment())
     }

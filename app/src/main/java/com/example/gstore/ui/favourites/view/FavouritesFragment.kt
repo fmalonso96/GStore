@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.gstore.R
 import com.example.gstore.databinding.FragmentFavouritesBinding
-import com.example.gstore.databinding.FragmentProductsBinding
 
 class FavouritesFragment : Fragment() {
 
