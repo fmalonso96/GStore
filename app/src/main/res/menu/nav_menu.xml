@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item android:id="@+id/navProducts"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="Productos"/>
+        <item android:id="@+id/navFavourites"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="Favoritos"/>
+        <item android:id="@+id/navConfiguration"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="Configuración"/>
+    </group>
+</menu>
