@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GStore">
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.main.view.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.GStore">
             <intent-filter>
