@@ -1,4 +1,4 @@
-package com.example.gstore.data
+package com.example.gstore.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

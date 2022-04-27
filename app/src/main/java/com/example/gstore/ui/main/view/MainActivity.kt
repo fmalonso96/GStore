@@ -1,22 +1,35 @@
 package com.example.gstore.ui.main.view
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.example.gstore.R
+import com.example.gstore.data.model.Product
 import com.example.gstore.databinding.ActivityMainBinding
 import com.example.gstore.ui.configuration.view.ConfigurationFragment
 import com.example.gstore.ui.favourites.view.FavouritesFragment
+import com.example.gstore.ui.products.view.ProductDetailFragment
 import com.example.gstore.ui.products.view.ProductsFragment
+import com.example.gstore.utils.Communicator
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.navView
+import kotlinx.android.synthetic.main.activity_main.drawerLayout
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+const val ID = "id"
+const val TITLE = "title"
+const val DESCRIPTION = "description"
+const val IMAGE = "image"
+
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, Communicator {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -65,12 +78,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    fun setToolbarTitle(title: String) {
+    private fun setToolbarTitle(title: String) {
         supportActionBar?.title = title
     }
 
-    fun changeFragment(frag: Fragment) {
+    private fun changeFragment(frag: Fragment) {
         val fragment = supportFragmentManager.beginTransaction()
         fragment.replace(R.id.fragmentContainer, frag).commit()
+    }
+
+    override fun navigateToProductDetail(product: Product) {
+        val bundle = Bundle()
+        bundle.putInt(ID, product.id)
+        bundle.putString(TITLE, product.title)
+        bundle.putString(DESCRIPTION, product.description)
+        bundle.putString(IMAGE, product.image)
+        val productDetailFragment = ProductDetailFragment()
+        productDetailFragment.arguments = bundle
+
+        changeFragment(productDetailFragment)
+        setToolbarTitle("Detalle del Producto")
     }
 }
