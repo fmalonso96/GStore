@@ -11,6 +11,7 @@ import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.gstore.R
+import com.example.gstore.data.database.DbRoom
 import com.example.gstore.utils.ViewModelFactory
 import com.example.gstore.databinding.FragmentProductsBinding
 import com.example.gstore.ui.products.adapter.ProductsAdapter
@@ -21,13 +22,14 @@ class ProductsFragment : Fragment() {
 
     private lateinit var viewModel: ProductsViewModel
     private lateinit var binding: FragmentProductsBinding
-    //private lateinit var dbRoom: DbRoom
+    private lateinit var dbRoom: DbRoom
     private lateinit var communicator: Communicator
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_products, container, false)
+        dbRoom = DbRoom.getDatabase(requireContext())
         communicator = activity as Communicator
 
         setupUI()
@@ -41,7 +43,7 @@ class ProductsFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        viewModel = ViewModelProvider(this, ViewModelFactory())[ProductsViewModel::class.java]
+        viewModel = ViewModelProvider(this, ViewModelFactory(dbRoom))[ProductsViewModel::class.java]
     }
 
     private fun setupObservers() {

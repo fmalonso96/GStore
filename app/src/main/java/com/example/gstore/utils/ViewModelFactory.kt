@@ -2,14 +2,18 @@ package com.example.gstore.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.gstore.data.repository.MainRepository
+import com.example.gstore.data.database.DbRoom
+import com.example.gstore.data.repository.GlobalRepositoryUseCase
+import com.example.gstore.ui.products.viewmodel.ProductDetailViewModel
 import com.example.gstore.ui.products.viewmodel.ProductsViewModel
 
-class ViewModelFactory : ViewModelProvider.Factory {
+class ViewModelFactory(private val dbRoom: DbRoom): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ProductsViewModel::class.java)) {
-            return ProductsViewModel(MainRepository()) as T
+
+        return when (modelClass) {
+            ProductsViewModel::class.java -> ProductsViewModel(GlobalRepositoryUseCase(dbRoom)) as T
+            ProductDetailViewModel::class.java -> ProductDetailViewModel(GlobalRepositoryUseCase(dbRoom)) as T
+            else -> throw IllegalArgumentException("Unknown class name")
         }
-        throw IllegalArgumentException("Unknown class name")
     }
 }
