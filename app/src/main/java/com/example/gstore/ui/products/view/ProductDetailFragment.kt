@@ -53,7 +53,7 @@ class ProductDetailFragment : Fragment() {
                 viewModel.deleteFavourite(currentProduct.id)
                 binding.ivFavourite.setImageResource(R.drawable.ic_favourite_unselected)
             }
-
+            viewModel.getIsFavourite(currentProduct.id)
         }
     }
 
@@ -88,4 +88,5 @@ class ProductDetailFragment : Fragment() {
         }
         return product
     }
+
 }

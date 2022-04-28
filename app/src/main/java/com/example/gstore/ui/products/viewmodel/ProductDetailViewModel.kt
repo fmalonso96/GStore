@@ -17,7 +17,10 @@ class ProductDetailViewModel(private val globalRepositoryUseCase: GlobalReposito
 
     fun insertFavourite(product: Product){
         CoroutineScope(Dispatchers.IO).launch {
-            globalRepositoryUseCase.insertFavourite(product)
+            val id = globalRepositoryUseCase.insertFavourite(product)
+            if (id > 0) {
+                getIsFavourite(product.id)
+            }
         }
     }
 

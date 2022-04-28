@@ -14,9 +14,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bienvenidos_a_gstore"
             android:layout_marginTop="16dp"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:gravity="center"
+            style="@style/home_title"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/guideline_1"/>
 
@@ -40,10 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:padding="8dp"
                 android:text="@string/description_title"
-                android:textStyle="bold"
-                android:textSize="18sp"/>
+                style="@style/subtitles"/>
 
             <TextView
                 android:id="@+id/tv_home_2"
@@ -51,10 +47,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:alpha="0"
-                android:padding="12dp"
                 android:rotationY="75"
                 android:text="@string/description"
-                android:textSize="22sp"
+                style="@style/general_big_text"
                 app:layout_constraintTop_toBottomOf="@id/tv_home_1"
                 app:layout_constraintStart_toStartOf="parent"/>
 

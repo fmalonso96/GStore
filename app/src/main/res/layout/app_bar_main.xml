@@ -10,9 +10,9 @@
         android:id="@+id/toolbarMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#A1A1A1"
+        android:background="#CBFF4B60"
         android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="@color/black"
+        app:titleTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
