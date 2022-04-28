@@ -9,17 +9,35 @@
         android:background="@color/white"
         android:padding="12dp">
 
-        <ImageView
-            android:id="@+id/iv_product_detail"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:scaleType="fitCenter"
+            app:layoutDescription="@xml/fragment_product_detail_scene"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/guideline">
 
-        </ImageView>
+            <ImageView
+                android:id="@+id/iv_product_detail"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_favourite"
+                android:layout_width="52dp"
+                android:layout_height="50dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_favourite_unselected"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -27,15 +45,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.6"/>
-
-        <ImageView
-            android:id="@+id/iv_favourite"
-            android:layout_width="52dp"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:padding="8dp"
-            android:src="@drawable/ic_favourite_unselected"/>
 
         <TextView
             android:id="@+id/tv_product_detail_title"
@@ -49,7 +58,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/iv_product_detail"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.setFragmentResultListener
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.gstore.databinding.FragmentProductDetailBinding
@@ -19,9 +17,7 @@ import com.example.gstore.ui.main.view.ID
 import com.example.gstore.ui.main.view.IMAGE
 import com.example.gstore.ui.main.view.TITLE
 import com.example.gstore.ui.products.viewmodel.ProductDetailViewModel
-import com.example.gstore.ui.products.viewmodel.ProductsViewModel
 import com.example.gstore.utils.ViewModelFactory
-import kotlinx.android.synthetic.main.fragment_product_detail.*
 
 private const val EMPTY_INT = 0
 private const val EMPTY_STRING = ""

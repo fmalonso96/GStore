@@ -1,16 +1,12 @@
 package com.example.gstore.ui.main.view
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import com.example.gstore.R
 import com.example.gstore.data.model.Product
 import com.example.gstore.databinding.ActivityMainBinding

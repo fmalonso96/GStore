@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.gstore.R
 import com.example.gstore.data.database.DbRoom
 import com.example.gstore.databinding.FragmentFavouritesBinding
-import com.example.gstore.ui.favourites.FavouritesAdapter
+import com.example.gstore.ui.favourites.adapter.FavouritesAdapter
 import com.example.gstore.ui.favourites.viewmodel.FavouritesViewModel
-import com.example.gstore.ui.products.viewmodel.ProductsViewModel
 import com.example.gstore.utils.ViewModelFactory
 
 class FavouritesFragment : Fragment() {
