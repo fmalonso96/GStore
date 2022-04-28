@@ -9,7 +9,7 @@ import com.example.gstore.R
 import com.example.gstore.data.model.Product
 import com.example.gstore.databinding.ItemRecyclerBinding
 
-class FavouritesAdapter(private val products: List<Product>):
+class FavouritesAdapter(private val products: List<Product>, private val onClick: (Product) -> Unit):
     RecyclerView.Adapter<FavouritesAdapter.FavouriteViewHolder>() {
 
     class FavouriteViewHolder(view: View) : RecyclerView.ViewHolder(view){
@@ -30,6 +30,9 @@ class FavouritesAdapter(private val products: List<Product>):
     override fun onBindViewHolder(holder: FavouriteViewHolder, position: Int) {
         val product = products[position]
         holder.bind(product)
+        holder.itemView.setOnClickListener {
+            onClick(product)
+        }
     }
 
     override fun getItemCount(): Int = products.size
