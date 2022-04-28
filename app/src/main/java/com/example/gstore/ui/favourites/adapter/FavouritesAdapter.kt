@@ -1,4 +1,4 @@
-package com.example.gstore.ui.favourites
+package com.example.gstore.ui.favourites.adapter
 
 import android.view.LayoutInflater
 import android.view.View

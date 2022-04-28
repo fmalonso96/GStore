@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.gstore.R
 import com.example.gstore.databinding.FragmentConfigurationBinding
-import com.example.gstore.databinding.FragmentHomeBinding
 
 class ConfigurationFragment : Fragment() {
 
