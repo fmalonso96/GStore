@@ -13,6 +13,7 @@ import com.example.gstore.data.database.DbRoom
 import com.example.gstore.databinding.FragmentFavouritesBinding
 import com.example.gstore.ui.favourites.adapter.FavouritesAdapter
 import com.example.gstore.ui.favourites.viewmodel.FavouritesViewModel
+import com.example.gstore.utils.Communicator
 import com.example.gstore.utils.ViewModelFactory
 
 class FavouritesFragment : Fragment() {
@@ -20,6 +21,7 @@ class FavouritesFragment : Fragment() {
     private lateinit var viewModel: FavouritesViewModel
     private lateinit var binding: FragmentFavouritesBinding
     private lateinit var dbRoom: DbRoom
+    private lateinit var communicator: Communicator
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +30,7 @@ class FavouritesFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favourites, container, false)
         dbRoom = DbRoom.getDatabase(requireContext())
+        communicator = activity as Communicator
 
         setupViewModel()
         setupUI()
@@ -46,7 +49,9 @@ class FavouritesFragment : Fragment() {
 
     private fun setupObservers() {
         viewModel.currentFavouriteProducts.observe(this.viewLifecycleOwner) { favouriteList ->
-            val adapter = FavouritesAdapter(favouriteList)
+            val adapter = FavouritesAdapter(favouriteList, onClick = { product ->
+                communicator.navigateToProductDetail(product)
+            })
             binding.recyclerViewFavourites.adapter = adapter
         }
     }
